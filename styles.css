@@ -1,0 +1,153 @@
+/* ==========================================================================
+   1. Global Resets & Theme Variables
+   ========================================================================== */
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-color: #38bdf8;
+  --border-color: #334155;
+  --radius: 12px;
+  --transition: all 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ==========================================================================
+   2. Typography & Layout Containers
+   ========================================================================== */
+h1 {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  background: linear-gradient(to right, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  flex: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.container {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* ==========================================================================
+   3. Specific ID Styling (Textareas)
+   ========================================================================== */
+#markdown-input,
+#html-output,
+#preview {
+  width: 100%;
+  flex: 1;
+  min-height: 450px;
+  background-color: #0b0f19;
+  border: 1px solid var(--border-color);
+  border-radius: calc(var(--radius) - 4px);
+  padding: 1rem;
+  color: #e2e8f0;
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+  transition: var(--transition);
+}
+
+/* Focus States via IDs */
+#markdown-input:focus,
+#html-output:focus,
+#preview:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+/* Placeholder Styling via specific ID */
+#markdown-input::placeholder {
+  color: #475569;
+}
+
+/* Custom Scrollbars via IDs */
+#markdown-input::-webkit-scrollbar,
+#html-output::-webkit-scrollbar,
+#preview::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+#markdown-input::-webkit-scrollbar-track,
+#html-output::-webkit-scrollbar-track,
+#preview::-webkit-scrollbar-track {
+  background: #0b0f19;
+  border-radius: calc(var(--radius) - 4px);
+}
+
+#markdown-input::-webkit-scrollbar-thumb,
+#html-output::-webkit-scrollbar-thumb,
+#preview::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+#markdown-input::-webkit-scrollbar-thumb:hover,
+#html-output::-webkit-scrollbar-thumb:hover,
+#preview::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* ==========================================================================
+   4. Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  #markdown-input,
+  #html-output,
+  #preview {
+    min-height: 250px;
+  }
+}
