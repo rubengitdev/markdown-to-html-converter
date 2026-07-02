@@ -16,6 +16,9 @@ function convertMarkdown() {
   // bold
   html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
 
+  // bold __
+  html = html.replace(/__(.+?)__/g, "<strong>$1</strong>");
+
   // italic text
   html = html.replace(/\*(.+?)\*/g, "<em>$1</em>");
 
